@@ -1,23 +1,27 @@
 # Project Setup Guide
 
+**View the final project report: [COMP30027-report.pdf](./COMP30027-report.pdf)**
+
+---
+
 ## Environment Setup
-1. Create conda environment from the provided environment.yml file:
 
-```bash
-conda env create -f environment.yml
-```
+This project uses `conda` for local environment management and a `requirements.txt` file for cloud deployment on Streamlit Community Cloud.
 
-2. Activate the environment:
+1. **Local Setup (using Conda):**
+   Create the conda environment from the provided `environment.yml` file:
+   ```bash
+   conda env create -f environment.yml
+   ```
+   Then, activate the environment:
+   ```bash
+   conda activate COMP30027_A2
+   ```
 
-```bash
-conda activate COMP30027_A2
-```
+2. **Cloud Deployment (Streamlit Cloud):**
+   The `requirements.txt` file is automatically used by Streamlit Community Cloud for deployment. No manual steps are needed if you are deploying from the GitHub repository.
 
-3. Update File Paths
-- Open the following notebooks and update the `file_path` variable to your project directory:
-  - `notebooks/cnn.ipynb`
-  - `notebooks/xgboost_svm.ipynb` 
-  - `notebooks/ensemble_model.ipynb`
+---
 
 ## Running the Models
 Execute the notebooks in the following order:
@@ -53,24 +57,10 @@ After downloading and unzipping, your project structure should look like this:
 └── README.md
 ```
 
-## Running the Visualization App
-To explore the model predictions and performance visually, you can run the Streamlit web application.
+## Live Demo
 
-1. **Activate the Conda Environment:**
-   If it's not already activated, activate the environment:
-   ```bash
-   conda activate COMP30027_A2
-   ```
+You can access the interactive web application for model visualization and error analysis via the following link.
 
-2. **Navigate to the Correct Directory:**
-   From the project root, change into the `notebooks` directory where the app file is located.
-   ```bash
-   cd notebooks
-   ```
+**[🚀 Launch the Streamlit App](YOUR_STREAMLIT_APP_LINK_HERE)**
 
-3. **Run the Streamlit App:**
-   Execute the following command in your terminal:
-   ```bash
-   streamlit run app.py
-   ```
-   This will start a local web server and open the application in your default web browser.
+The application is deployed on Streamlit Community Cloud. Please note that the app may go into hibernation due to inactivity and might take a moment to wake up on the first visit.
