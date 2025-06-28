@@ -61,6 +61,6 @@ After downloading and unzipping, your project structure should look like this:
 
 You can access the interactive web application for model visualization and error analysis via the following link.
 
-**[🚀 Launch the Streamlit App](YOUR_STREAMLIT_APP_LINK_HERE)**
+**[🚀 Launch the Streamlit App](https://comp30027-a2-jzfwtsbls28gq6ghgr8dyd.streamlit.app/)**
 
 The application is deployed on Streamlit Community Cloud. Please note that the app may go into hibernation due to inactivity and might take a moment to wake up on the first visit.

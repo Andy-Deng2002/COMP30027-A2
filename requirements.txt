@@ -1,37 +1,28 @@
 # -----------------------------------------------------------------
-# This file was generated based on the user's local conda environment
-# to ensure fast and reliable deployment on Streamlit Cloud.
-# All versions are pinned to skip dependency resolution.
+# Final, minimal set of dependencies for deploying app.py
+# All versions are pinned where possible to speed up deployment.
 # -----------------------------------------------------------------
 
-# Core data science and utility libraries
+# Core app framework and data handling
+streamlit==1.37.1
 pandas==2.2.2
 numpy==1.26.4
+requests==2.32.3
+
+# Machine Learning and Metrics
 scikit-learn==1.5.1
+xgboost # Required for loading XGBoost results, let pip resolve version
+
+# Image processing and plotting
 Pillow==10.4.0
-matplotlib==3.9.2
-scipy==1.13.1
-tqdm==4.66.5
+matplotlib # For st.pyplot, let pip resolve version
+opencv-python # A dependency for grad-cam and other image operations
 
-# Streamlit
-streamlit==1.37.1
-
-# Machine Learning specific
-xgboost # Let pip handle the exact version compatible with the cloud OS
-opencv-python # Let pip handle the exact version compatible with the cloud OS
-
-# For Sankey plot from GitHub
-git+https://github.com/Pierre-Sassoulas/pySankey.git
-
-# For Grad-CAM and model inspection
-# Forcing CPU-only versions for PyTorch to ensure compatibility and speed
+# PyTorch and Grad-CAM (CPU-only for cloud compatibility)
 --extra-index-url https://download.pytorch.org/whl/cpu
 torch
 torchvision
 grad-cam
-requests==2.32.3
 
-# Other libraries that might be implicitly used
-ipykernel
-shap
-seaborn 
+# For Sankey plot from GitHub
+git+https://github.com/Pierre-Sassoulas/pySankey.git 
