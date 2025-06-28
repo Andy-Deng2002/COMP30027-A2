@@ -1,0 +1,25 @@
+# Base requirements
+pandas
+numpy
+tqdm
+scikit-learn
+Pillow
+ipykernel
+shap
+matplotlib
+seaborn
+opencv-python
+xgboost
+streamlit
+requests
+
+# For Grad-CAM
+grad-cam
+
+# For Sankey plot
+git+https://github.com/Pierre-Sassoulas/pySankey.git
+
+# PyTorch - CPU version for compatibility with Streamlit Cloud
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch
+torchvision 

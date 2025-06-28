@@ -4,14 +4,71 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import sys
 import os
+import requests
+import zipfile
+import io
+import shutil
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
 from sklearn.model_selection import train_test_split
 from PIL import Image
 import torch
 from torchvision import transforms
 
-# Add the utils directory to the path to import custom modules
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'utils')))
+# --- Auto-downloader for Data, Models, and Results ---
+
+def download_and_unzip(url, target_path="."):
+    """Downloads a zip file from a URL and extracts it."""
+    st.info("首次运行设置：正在下载所需的数据和模型文件（约 185MB），请稍候...")
+    
+    # Send a GET request to the URL
+    response = requests.get(url, stream=True)
+    
+    # Check if the request was successful
+    if response.status_code == 200:
+        with st.spinner("下载中..."):
+            zip_file = zipfile.ZipFile(io.BytesIO(response.content))
+        
+        with st.spinner("正在解压文件..."):
+            # Create a temporary directory for extraction
+            temp_extract_dir = os.path.join(target_path, "temp_extract")
+            os.makedirs(temp_extract_dir, exist_ok=True)
+            zip_file.extractall(temp_extract_dir)
+
+            # Move contents from the nested folder to the project root
+            nested_folder = os.path.join(temp_extract_dir, "data_file")
+            for item in os.listdir(nested_folder):
+                s = os.path.join(nested_folder, item)
+                d = os.path.join(target_path, item)
+                if os.path.isdir(s):
+                    shutil.move(s, d)
+                else:
+                    shutil.move(s, d)
+            
+            # Clean up the temporary directory
+            shutil.rmtree(temp_extract_dir)
+
+        st.success("文件下载并设置成功！应用正在加载...")
+    else:
+        st.error(f"无法下载文件。状态码: {response.status_code}")
+        st.stop()
+
+def check_and_setup_files():
+    """Checks if data/models/results folders exist, if not, downloads them."""
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    data_dir = os.path.join(project_root, "data")
+    
+    if not os.path.exists(data_dir):
+        # Google Drive direct download link needs to be formatted correctly
+        file_id = "1I2JZidA8NJzks_IPo5PfXVbDV0BErs2i"
+        gdrive_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+        download_and_unzip(gdrive_url, project_root)
+
+# Run the setup check at the beginning of the app
+check_and_setup_files()
+
+
+# --- PATH SETUP AND IMPORTS ---
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils')))
 from sankey import create_sankey_plot, classes
 from GTRSB_CNN import SimpleCNN
 from pytorch_grad_cam import GradCAM
