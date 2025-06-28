@@ -1,0 +1,28 @@
+name: COMP30027_A2
+channels:
+  - defaults
+  - pytorch
+  - conda-forge
+  - pip
+dependencies:
+  - python
+  - pandas
+  - numpy
+  - tqdm
+  - scikit-learn
+  - pillow
+  - ipykernel
+  - shap
+  - matplotlib
+  - seaborn
+  - cudatoolkit=11.8
+  - pip:
+      - git+https://github.com/Pierre-Sassoulas/pySankey.git
+      # - pysankey # https://github.com/Pierre-Sassoulas/pySankey.git
+      - opencv-python
+      - grad-cam
+      - xgboost
+      - streamlit
+      - torch==2.6.0+cu118
+      - torchvision==0.21.0+cu118
+      - --extra-index-url https://download.pytorch.org/whl/cu118

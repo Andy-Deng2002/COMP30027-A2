@@ -1,0 +1,27 @@
+# Folders to ignore
+data/
+models/
+results/
+__pycache__/
+submission_file/
+
+# Python specific
+*.pyc
+.env
+
+# Notebook specific
+# Ignore jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# IDE specific
+.vscode/
+.idea/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Large files
+*.zip
+*.pdf
+*.docx
