@@ -37,7 +37,7 @@ Execute the notebooks in the following order:
 ## Data and Models Setup
 The `data/`, `models/`, and `results/` directories are not tracked by Git. You need to download them from the following link and place them in the project's root directory:
 
-[Download Data, Models, and Results from Google Drive](YOUR_GOOGLE_DRIVE_LINK_HERE)
+[Download Data, Models, and Results from Google Drive](https://drive.google.com/file/d/1I2JZidA8NJzks_IPo5PfXVbDV0BErs2i/view?usp=sharing)
 
 After downloading and unzipping, your project structure should look like this:
 ```
