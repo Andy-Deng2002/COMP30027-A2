@@ -54,7 +54,7 @@ def download_and_unzip(url, target_path="."):
 
 def check_and_setup_files():
     """Checks if data/models/results folders exist, if not, downloads them."""
-    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__)))
     data_dir = os.path.join(project_root, "data")
     
     if not os.path.exists(data_dir):
@@ -68,7 +68,7 @@ check_and_setup_files()
 
 
 # --- PATH SETUP AND IMPORTS ---
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'utils')))
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), 'utils')))
 from sankey import create_sankey_plot, classes
 from GTRSB_CNN import SimpleCNN
 from pytorch_grad_cam import GradCAM

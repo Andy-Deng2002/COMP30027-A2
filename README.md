@@ -1,66 +1,54 @@
-# Project Setup Guide
+# GTSRB Traffic Sign Recognition - Model Analysis Dashboard
 
-**View the final project report: [COMP30027-report.pdf](./COMP30027-report.pdf)**
+This project provides an interactive Streamlit dashboard to analyze and compare the performance of three different machine learning models (CNN, XGBoost, SVM) on the German Traffic Sign Recognition Benchmark (GTSRB) dataset.
+
+The dashboard allows for in-depth error analysis, visualization of misclassifications, and includes Grad-CAM visual explanations for the CNN model.
+
+**[➡️ View the Project Report Here](https://drive.google.com/file/d/1tUErghXo-4WGR16AUVIiuxl7NoO7wwrZ/view?usp=sharing)**
 
 ---
 
-## Environment Setup
+## Instructions
 
-This project uses `conda` for local environment management and a `requirements.txt` file for cloud deployment on Streamlit Community Cloud.
+### 1. First-Time Setup (Only needs to be done once)
 
-1. **Local Setup (using Conda):**
-   Create the conda environment from the provided `environment.yml` file:
+a. **Clone the Repository:**
+   Open your terminal, navigate to the directory where you want to store the project, and run the following command:
+   ```bash
+   git clone <your-repository-url>
+   cd <repository-folder-name>
+   ```
+   *(Replace `<your-repository-url>` and `<repository-folder-name>` with your actual repository URL and folder name)*
+
+b. **Create the Conda Environment:**
+   The `environment.yml` file contains all the necessary dependencies. Create the environment by running:
    ```bash
    conda env create -f environment.yml
    ```
-   Then, activate the environment:
+   This will create a new, self-contained Conda environment named `comp30027_a2` with all required libraries installed.
+
+### 2. Running the Application (For a Live Demo)
+
+After the one-time setup is complete, follow these two steps each time you want to run the app.
+
+a. **Activate the Environment:**
    ```bash
-   conda activate COMP30027_A2
+   conda activate comp30027_a2
    ```
 
-2. **Cloud Deployment (Streamlit Cloud):**
-   The `requirements.txt` file is automatically used by Streamlit Community Cloud for deployment. No manual steps are needed if you are deploying from the GitHub repository.
+b. **Run the Streamlit App:**
+   ```bash
+   streamlit run app.py
+   ```
+   Your web browser should automatically open a new tab with the running application. If not, the terminal will provide a local URL (usually `http://localhost:8501`) that you can open manually.
 
 ---
 
-## Running the Models
-Execute the notebooks in the following order:
-
-1. Train CNN and SVM/XGBoost models (can be run in parallel):
-   - `cnn.ipynb` (~30 minutes)
-   - `xgboost_svm.ipynb` (~30 minutes)
-
-2. Run ensemble model:
-   - `ensemble_model.ipynb` (after both base models are trained)
-
-## Note
-- Ensure you have sufficient computational resources
-- Models will be saved in the `models` directory
-- The results on test set will be saved in the `results` directory and named as 'submission_{model_name}.csv'
-
-## Data and Models Setup
-The `data/`, `models/`, and `results/` directories are not tracked by Git. You need to download them from the following link and place them in the project's root directory:
-
-[Download Data, Models, and Results from Google Drive](https://drive.google.com/file/d/1I2JZidA8NJzks_IPo5PfXVbDV0BErs2i/view?usp=sharing)
-
-After downloading and unzipping, your project structure should look like this:
+### Project Structure
 ```
 .
-├── data/
-├── models/
-├── notebooks/
-├── results/
-├── utils/
-├── .gitignore
-├── app.py
-├── environment.yml
-└── README.md
+├── app.py              # The main Streamlit application script
+├── environment.yml     # Conda environment specification
+├── utils/              # Utility scripts (e.g., for Sankey plot)
+├── notebooks/          # Jupyter notebooks for model training and exploration
 ```
-
-## Live Demo
-
-You can access the interactive web application for model visualization and error analysis via the following link.
-
-**[🚀 Launch the Streamlit App](https://comp30027-a2-jzfwtsbls28gq6ghgr8dyd.streamlit.app/)**
-
-The application is deployed on Streamlit Community Cloud. Please note that the app may go into hibernation due to inactivity and might take a moment to wake up on the first visit.
