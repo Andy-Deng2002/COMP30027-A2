@@ -15,10 +15,10 @@ The dashboard allows for in-depth error analysis, visualization of misclassifica
 a. **Clone the Repository:**
    Open your terminal, navigate to the directory where you want to store the project, and run the following command:
    ```bash
-   git clone <your-repository-url>
-   cd <repository-folder-name>
+   git clone https://github.com/Andy-Deng2002/COMP30027-A2.git <folder-name>
+   cd <folder-name>
    ```
-   *(Replace `<your-repository-url>` and `<repository-folder-name>` with your actual repository URL and folder name)*
+   *(Replace  `<folder-name>` with the name you want for the project directory)*
 
 b. **Create the Conda Environment:**
    The `environment.yml` file contains all the necessary dependencies. Create the environment by running:

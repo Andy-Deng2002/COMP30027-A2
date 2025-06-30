@@ -25,5 +25,6 @@ Thumbs.db
 # Large files
 *.zip
 *.pdf
-!COMP30027-report.pdf
 *.docx
+
+submission.csv
